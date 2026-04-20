@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # Main API service
+  api:
+    build:
+      context: .
+      target: production
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - nlp-network
+
+  # Development service
+  api-dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "8001:8000"
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=DEBUG
+    volumes:
+      - .:/app
+      - ./models:/app/models
+      - ./logs:/app/logs
+    profiles:
+      - dev
+    networks:
+      - nlp-network
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    profiles:
+      - cache
+    networks:
+      - nlp-network
+
+  # Nginx reverse proxy (optional)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - api
+    restart: unless-stopped
+    profiles:
+      - production
+    networks:
+      - nlp-network
+
+volumes:
+  redis_data:
+
+networks:
+  nlp-network:
+    driver: bridge

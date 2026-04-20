@@ -1,0 +1,2 @@
+[console_scripts]
+advanced-nlp-sentiment-api = api.main:main

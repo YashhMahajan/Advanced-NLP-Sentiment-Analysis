@@ -1,0 +1,106 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Virtual environments
+.venv
+venv/
+ENV/
+env/
+.benv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+models/
+logs/
+*.pkl
+*.joblib
+results/
+checkpoints/
+wandb/
+
+# Data files
+*.csv
+*.json
+*.parquet
+data/
+datasets/
+
+# Documentation
+docs/_build/
+*.md
+!README.md
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# NLTK data (will be downloaded in container)
+nltk_data/
+
+# Transformers cache (will be downloaded in container)
+.cache/
+transformers_cache/
+
+# PyTorch
+*.pth
+
+# Testing
+.pytest_cache/
+test_results/
+
+# Development
+.env
+.env.local
+.env.*.local
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Docker
+Dockerfile.dev
+docker-compose.override.yml

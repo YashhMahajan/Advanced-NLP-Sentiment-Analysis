@@ -1,0 +1,48 @@
+# Core ML and NLP libraries
+numpy>=2.4.4
+pandas>=3.0.2
+scikit-learn>=1.8.0
+nltk>=3.9.4
+
+# Deep learning and transformers
+torch>=2.11.0
+transformers>=5.5.4
+datasets>=4.8.4
+
+# Web API
+fastapi>=0.136.0
+uvicorn>=0.44.0
+pydantic>=2.13.2
+
+# System monitoring
+psutil>=7.2.2
+
+# Visualization (for analysis)
+matplotlib>=3.10.8
+seaborn>=0.13.2
+
+# Data validation and utilities
+python-multipart>=0.0.26
+
+# Development and testing
+pytest>=9.0.3
+pytest-asyncio>=1.3.0
+requests>=2.33.1
+
+# Model persistence and utilities
+joblib>=1.5.3
+tqdm>=4.67.3
+
+# Additional dependencies for transformers
+huggingface_hub>=1.11.0
+tokenizers>=0.22.2
+safetensors>=0.7.0
+
+# Additional API dependencies
+aiohttp>=3.13.5
+httpx>=0.28.1
+click>=8.3.2
+
+# Additional data processing
+pyarrow>=23.0.1
+pillow>=12.2.0
