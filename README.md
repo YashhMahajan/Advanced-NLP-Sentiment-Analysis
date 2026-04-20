@@ -293,14 +293,6 @@ curl http://localhost:8000/api/v1/health
 - **Staging**: Use `docker-compose` with Redis cache
 - **Production**: Use full stack with Nginx reverse proxy
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests
-5. Submit a pull request
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -323,4 +315,4 @@ For issues and questions:
 
 ---
 
-**Note**: The original Jupyter notebook (`sentiment_analysis_clean.ipynb`) is preserved for educational purposes and reference.
+**Note**: The Jupyter notebook (`sentiment_analysis_clean.ipynb`) is preserved for a simple guide for NLP Sentiment analysis. 
